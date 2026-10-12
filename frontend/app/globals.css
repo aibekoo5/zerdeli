@@ -1,0 +1,448 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+/* ============================================
+   Zerdeli Theme System - Light & Dark Mode
+   ============================================ */
+
+:root {
+  /* Light Theme (Default) */
+  --bg-primary: 255 255 255;
+  --bg-secondary: 249 250 251;
+  --bg-tertiary: 243 244 246;
+  --bg-card: 255 255 255;
+  --bg-card-hover: 240 253 244;
+
+  /* Section / surface tones used by the marketing components */
+  --section-bg: 248 250 252;      /* slate-50  */
+  --section-bg-alt: 255 255 255;
+  --surface-raised: 255 255 255;
+
+  --border-color: 229 231 235;
+  --border-subtle: 226 232 240;   /* slate-200 */
+  --border-hover: 16 185 129;
+
+  --text-primary: 15 23 42;       /* slate-900 */
+  --text-secondary: 71 85 105;    /* slate-600 */
+  --text-tertiary: 100 116 139;   /* slate-500 */
+  --text-on-glass: 15 23 42;
+
+  /* Brand Colors */
+  --zerdeli-primary: 16 185 129;
+  --zerdeli-dark: 5 150 105;
+  --zerdeli-darker: 4 120 87;
+  --zerdeli-light: 110 231 183;
+
+  --accent-amber: 245 158 11;
+  --accent-rose: 244 63 94;
+}
+
+[data-theme="dark"] {
+  /* Dark Theme */
+  --bg-primary: 11 17 32;
+  --bg-secondary: 30 41 59;
+  --bg-tertiary: 51 65 85;
+  --bg-card: 30 41 59;
+  --bg-card-hover: 51 65 85;
+
+  --section-bg: 11 17 32;
+  --section-bg-alt: 2 6 23;
+  --surface-raised: 19 27 46;
+
+  --border-color: 51 65 85;
+  --border-subtle: 255 255 255;   /* used at low alpha */
+  --border-hover: 16 185 129;
+
+  --text-primary: 241 245 249;
+  --text-secondary: 203 213 225;
+  --text-tertiary: 148 163 184;
+  --text-on-glass: 241 245 249;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  color: rgb(var(--text-primary));
+  background: rgb(var(--bg-primary));
+  font-family: 'Inter', 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+  max-width: 100vw;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ============================================
+   Glassmorphism Cards
+   ============================================ */
+
+.glass-card {
+  background: rgb(255 255 255 / 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgb(226 232 240 / 0.9);
+  box-shadow: 0 10px 30px -12px rgba(15, 23, 42, 0.12);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="dark"] .glass-card {
+  background: rgb(30 41 59 / 0.72);
+  border-color: rgb(255 255 255 / 0.08);
+  box-shadow: 0 10px 35px -5px rgba(0, 0, 0, 0.35);
+}
+
+.glass-card:hover,
+.glass-card-hover:hover {
+  border-color: rgb(var(--zerdeli-primary) / 0.45);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -12px rgb(var(--zerdeli-primary) / 0.22);
+}
+
+[data-theme="dark"] .glass-card:hover,
+[data-theme="dark"] .glass-card-hover:hover {
+  background: rgb(51 65 85 / 0.9);
+}
+
+/* ============================================
+   Juz Card / Button (legacy marketing classes)
+   ============================================ */
+
+.juz-card {
+  background: #ffffff;
+  border: 1px solid rgb(226 232 240 / 0.9);
+  box-shadow: 0 10px 30px -12px rgba(15, 23, 42, 0.12);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="dark"] .juz-card {
+  background: linear-gradient(180deg, rgb(28 39 64 / 0.9) 0%, rgb(17 24 42 / 0.92) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-color: rgb(255 255 255 / 0.09);
+  box-shadow: 0 10px 35px -5px rgba(0, 0, 0, 0.35);
+}
+
+.juz-btn-primary {
+  background: linear-gradient(135deg, #10B981 0%, #059669 60%, #047857 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+  transition: all 0.25s ease;
+  border: none;
+}
+
+.juz-btn-primary:hover {
+  background: linear-gradient(135deg, #34D399 0%, #10B981 60%, #059669 100%);
+  box-shadow: 0 6px 28px rgba(16, 185, 129, 0.45);
+}
+
+/* ============================================
+   Text Gradients
+   ============================================ */
+
+.text-gradient-zerdeli {
+  background: linear-gradient(135deg, #059669 0%, #10B981 50%, #34D399 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #D97706 0%, #F59E0B 50%, #FBBF24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-emerald {
+  background: linear-gradient(135deg, #047857 0%, #10B981 50%, #6EE7B7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   Zerdeli Buttons
+   ============================================ */
+
+.zerdeli-btn-primary {
+  background: linear-gradient(135deg, #10B981 0%, #059669 60%, #047857 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+  transition: all 0.25s ease;
+  border: none;
+  font-weight: 600;
+}
+
+.zerdeli-btn-primary:hover {
+  background: linear-gradient(135deg, #34D399 0%, #10B981 60%, #059669 100%);
+  box-shadow: 0 6px 28px rgba(16, 185, 129, 0.45);
+  transform: translateY(-2px);
+}
+
+.zerdeli-btn-secondary {
+  background: rgb(var(--bg-card) / 0.9);
+  border: 1px solid rgb(var(--zerdeli-primary) / 0.3);
+  color: rgb(var(--text-primary));
+  transition: all 0.25s ease;
+  font-weight: 600;
+}
+
+.zerdeli-btn-secondary:hover {
+  background: rgb(var(--bg-card-hover) / 1);
+  border-color: rgb(var(--zerdeli-primary) / 0.6);
+  color: rgb(var(--zerdeli-primary));
+  transform: translateY(-2px);
+}
+
+.zerdeli-btn-ghost {
+  background: transparent;
+  border: 1px solid transparent;
+  color: rgb(var(--text-primary));
+  transition: all 0.25s ease;
+}
+
+.zerdeli-btn-ghost:hover {
+  background: rgb(var(--zerdeli-primary) / 0.1);
+  border-color: rgb(var(--zerdeli-primary) / 0.3);
+  color: rgb(var(--zerdeli-primary));
+}
+
+/* ============================================
+   Badges & Tags
+   ============================================ */
+
+.badge-success {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #047857;
+}
+
+[data-theme="dark"] .badge-success {
+  background: rgba(16, 185, 129, 0.2);
+  color: #6EE7B7;
+}
+
+.badge-gold {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.15) 0%, rgba(217, 119, 6, 0.15) 100%);
+  border: 1px solid rgba(217, 119, 6, 0.4);
+  color: #B45309;
+}
+
+[data-theme="dark"] .badge-gold {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.2) 0%, rgba(217, 119, 6, 0.2) 100%);
+  color: #FCD34D;
+}
+
+.badge-info {
+  background: rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  color: #1E40AF;
+}
+
+[data-theme="dark"] .badge-info {
+  background: rgba(59, 130, 246, 0.2);
+  color: #93C5FD;
+}
+
+/* ============================================
+   Custom Scrollbar
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--bg-secondary));
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--border-color));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--zerdeli-primary));
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(var(--border-color)) rgb(var(--bg-secondary));
+}
+
+/* ============================================
+   Focus States
+   ============================================ */
+
+*:focus-visible {
+  outline: 2px solid rgb(var(--zerdeli-primary));
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ============================================
+   Animations & Transitions
+   ============================================ */
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgb(var(--bg-card) / 0) 0%,
+    rgb(var(--zerdeli-primary) / 0.1) 50%,
+    rgb(var(--bg-card) / 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+
+.container-custom {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-custom {
+    padding: 0 2rem;
+  }
+}
+
+.section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+}
+
+/* ============================================
+   Redesign helpers — clean light / bento
+   ============================================ */
+
+/* faint dot grid, fades toward centre */
+.bg-dotgrid {
+  background-image: radial-gradient(rgb(15 23 42 / 0.05) 1px, transparent 1px);
+  background-size: 22px 22px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 40%, transparent 100%);
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 40%, transparent 100%);
+}
+
+/* layered soft shadow used across the redesigned cards */
+.shadow-soft {
+  box-shadow: 0 1px 3px rgb(15 23 42 / 0.04), 0 12px 32px -12px rgb(15 23 42 / 0.10);
+}
+.shadow-glow-emerald {
+  box-shadow: 0 1px 3px rgb(15 23 42 / 0.05), 0 24px 60px -18px rgb(16 185 129 / 0.35);
+}
+
+/* teachers strip — endless slow rightward drift, pauses on hover */
+@keyframes teacher-marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+.animate-teacher-marquee {
+  animation: teacher-marquee-right 46s linear infinite;
+}
+.teacher-marquee-fade {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+}
+
+/* frosted chip that floats above the hero glow */
+.chip-glass {
+  background: rgb(255 255 255 / 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgb(255 255 255 / 0.7);
+  box-shadow: 0 8px 30px -8px rgb(15 23 42 / 0.18);
+}
+
+.bento-cell {
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s, border-color 0.25s;
+}
+.bento-cell:hover {
+  transform: translateY(-4px);
+  border-color: rgb(16 185 129 / 0.4);
+  box-shadow: 0 1px 3px rgb(15 23 42 / 0.04), 0 20px 44px -16px rgb(16 185 129 / 0.22);
+}
+
+/* ============================================
+   Resilience: force-reveal Framer Motion entrance content
+   ============================================
+   Framer Motion renders its `initial` (hidden) state into the
+   server HTML and only animates to visible once client JS
+   hydrates. On some mobile WebKit sessions hydration stalls or
+   races (observed on iOS Safari + iOS Chrome, both WebKit) and
+   the content is left permanently at opacity:0 — the page looks
+   "blank" below anything rendered in plain CSS/HTML (e.g. the
+   navbar). A CSS animation outranks a plain (non-!important)
+   inline style in the cascade, so this guarantees every such
+   element becomes visible on its own after a short grace period,
+   even if JS never runs. Real, working entrance animations finish
+   well under this delay, so this never fires while JS is healthy. */
+@keyframes force-reveal {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+[style*="opacity:0"] {
+  animation: force-reveal 0.4s ease 2.5s forwards;
+}
+
+/* ============================================
+   Loading States
+   ============================================ */
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgb(var(--bg-tertiary) / 1) 25%,
+    rgb(var(--bg-secondary) / 1) 50%,
+    rgb(var(--bg-tertiary) / 1) 75%
+  );
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
